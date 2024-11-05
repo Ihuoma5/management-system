@@ -3,12 +3,12 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export interface Project {
               id: number;      
-              name?: string;
+              name: string;
               description?: string;
               startDate?: string;
               endDate?: string;
 }
-
+ 
 export enum Priority {
     Urgent = "Urgent",
     High = "High",
@@ -43,7 +43,7 @@ export interface Attachment {
 
 export interface Task {
                 id: number;
-                title: number;
+                title: string;
                 description?: string; 
                 status?: Status;
                 priority?: Priority;
@@ -62,7 +62,7 @@ export interface Task {
 }
 
 export const api = createApi({
-    baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL}),
+    baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_API_BASIC_URL}),
     reducerPath: "api",
     tagTypes: ["Projects", "Tasks"],
     endpoints: (build)=> ({

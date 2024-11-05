@@ -10,14 +10,13 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
 
   useEffect(() => {
-    // This will ensure the dark mode class is applied after hydration
+  
     if (isDarkMode) {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
     }
-  }, [isDarkMode]); // Ensure you only depend on isDarkMode
-
+  }, [isDarkMode]); 
   return (
     <div className='flex min-h-screen w-full bg-gray-50 text-gray-900'>
       <Sidebar />

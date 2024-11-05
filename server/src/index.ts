@@ -18,10 +18,7 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cors({
-  origin: "http://localhost:3000", // Adjust to your frontend's URL
-  credentials: true,
-}));
+app.use(cors( ));
 
 /* ROUTES */
 app.get("/", (req, res) => {
@@ -33,7 +30,7 @@ app.use("/tasks", taskRoutes);
 
 
 /* SERVER */
-const PORT = 8000;
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`)
+})
